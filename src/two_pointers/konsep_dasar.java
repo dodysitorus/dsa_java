@@ -15,6 +15,8 @@ public class konsep_dasar {
         System.out.println(twoSumSortedArray(input, target));
         int[] number = {1, 0, 3, 0, 12};
         System.out.println(Arrays.toString(moveZeros(number)));
+        int[] duplicateNumber = {1, 1, 2, 2, 3};
+        System.out.println(Arrays.toString(removeDuplicate(duplicateNumber)));
     }
 
     public static int[] reverseIntArr(int[] arr) {
@@ -96,16 +98,22 @@ public class konsep_dasar {
         return arr;
     }
 
-    //1,1,2,2,3
+//    int[] duplicateNumber = {1, 1, 2, 2, 3};
     public static int[] removeDuplicate(int[] arr) {
         int slow = 0;
         for (int fast = 0; fast < arr.length; fast++) {
-            if (arr[fast] == arr[slow]) {
-
+            if (arr[fast] != arr[slow]) {
                 slow++;
+                arr[slow] = arr[fast];
             }
-
         }
-        return arr;
+
+        int uniqueCount = slow + 1;
+        int[] result = new int[slow + 1];
+
+        for (int i = 0; i < uniqueCount; i++) {
+            result[i] = arr[i];
+        }
+        return result;
     }
 }
