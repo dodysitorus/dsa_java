@@ -84,6 +84,7 @@ public class konsep_dasar {
         return result;
     }
 
+//    int[] number = {1, 0, 3, 0, 12};
     public static int[] moveZeros(int[] arr) {
         int slow = 0;
         for (int fast = 0; fast < arr.length; fast++) {
